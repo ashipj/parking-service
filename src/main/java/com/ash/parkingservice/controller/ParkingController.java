@@ -11,8 +11,12 @@ import java.util.List;
 @RestController
 public class ParkingController {
 
+    private ParkingService parkingService;
+
     @Autowired
-    ParkingService parkingService;
+    public ParkingController(ParkingService parkingService) {
+        this.parkingService = parkingService;
+    }
 
     @RequestMapping("/parking/list")
     public List<ParkingSpot> list() {
